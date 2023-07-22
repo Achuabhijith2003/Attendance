@@ -1,0 +1,3 @@
+___________________________-DB SQlite-____________________________________
+table_name=subname
+each Column have present,Absent,date,subname;

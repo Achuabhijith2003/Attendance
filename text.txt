@@ -1,0 +1,50 @@
+ListView.separated(
+        itemBuilder: (context, index) {
+          return Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: 100,
+                  width: 500,
+                  decoration: BoxDecoration(
+                    color: Colors.brown,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color.fromARGB(255, 221, 183, 170),
+                        blurRadius: 4,
+                        offset: Offset(4, 8), // Shadow position
+                        //dashbord decoration-end----------------------------
+                      ),
+                    ],
+                  ),
+                  child: Text(
+                    Status,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
+        separatorBuilder: (context, index) {
+          return const Divider();
+        },
+        itemCount: n);
+
+
+
+
+
+        --------------------------------------------------------------------------------------------------------
+         ListView.separated(
+                          itemBuilder: (context, index) {
+                            return ListTile(
+                              title: Text("Sub_name$index"),
+                            );
+                          },
+                          separatorBuilder: (context, index) {
+                            return const Divider();
+                          },
+                          itemCount: 6)
