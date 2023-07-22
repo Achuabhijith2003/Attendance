@@ -25,7 +25,7 @@ class _homeState extends State<home> {
       drawer: sidebar(),
       backgroundColor: const Color.fromARGB(255, 248, 247, 246),
       appBar: AppBar(
-        backgroundColor: Colors.brown,
+        backgroundColor: Colors.black,
         title: const Text("Attendance"),
       ),
       body: Column(
