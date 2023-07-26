@@ -9,7 +9,7 @@ Future<void> startdb() async {
     'attendance.db',
     version: 1,
     onCreate: (db, version) async {
-      await db.execute(//${value.subname}
+      await db.execute(
           'CREATE TABLE subname (date TEXT,subname TEXT,Present INTEGER,absent INTEGER)');
     },
   );
@@ -22,7 +22,7 @@ Future<void> getdata() async {
     final stu = Attendance.frommap(map);
     attendancelistnotifier.value.add(stu);
 
-    // attendancelistnotifier.notifyListeners();
+    attendancelistnotifier.notifyListeners();
   }
   print(value);
 }

@@ -94,8 +94,10 @@ Future<void> getsubname() async {
     return;
   } else {
     addsubname(Attendance(
-      subname: Subname,
-    ));
+        subname: Subname,
+        absent: 0,
+        date: "",
+        present: 0)); //add data to database
   }
 }
 
