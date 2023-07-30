@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
-class report extends StatefulWidget {
-  const report({super.key});
+class reports extends StatefulWidget {
+  const reports({super.key});
 
   @override
-  State<report> createState() => _reportState();
+  State<reports> createState() => _reportState();
 }
 
-class _reportState extends State<report> {
+class _reportState extends State<reports> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

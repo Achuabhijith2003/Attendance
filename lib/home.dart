@@ -2,7 +2,8 @@
 
 import 'dart:io';
 
-import 'package:attendance/db/functions/db_functions.dart';
+import 'package:attendance/db/functions/db_report.dart';
+import 'package:attendance/db/model/data_report.dart';
 import 'package:attendance/setup.dart';
 import 'package:attendance/sidebar.dart';
 import 'package:attendance/start.dart';
@@ -20,7 +21,7 @@ class home extends StatefulWidget {
 class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
-    getdata();
+    display();
     return Scaffold(
       drawer: sidebar(),
       backgroundColor: const Color.fromARGB(255, 248, 247, 246),

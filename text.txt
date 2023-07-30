@@ -48,3 +48,12 @@ ListView.separated(
                             return const Divider();
                           },
                           itemCount: 6)
+
+
+
+
+
+                          db
+
+
+                          CREATE TABLE subname (date TEXT,subname TEXT,Present INTEGER,absent INTEGER)

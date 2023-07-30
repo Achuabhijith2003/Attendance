@@ -1,5 +1,5 @@
-import 'package:attendance/db/functions/db_functions.dart';
-import 'package:attendance/db/model/data_modal.dart';
+import 'package:attendance/db/functions/db_report.dart';
+import 'package:attendance/db/model/data_report.dart';
 import 'package:flutter/material.dart';
 
 class setup1 extends StatefulWidget {
@@ -47,8 +47,9 @@ class _setup1State extends State<setup1> {
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.brown)),
                 onPressed: () {
-                  getdata();
                   getsubname();
+                  display();
+                  setState(() {});
                 },
                 icon: const Icon(Icons.add),
                 label: const Text("Add")),
@@ -56,21 +57,22 @@ class _setup1State extends State<setup1> {
         ),
         Expanded(
           child: ValueListenableBuilder(
-            valueListenable: attendancelistnotifier,
+            valueListenable: studentlistnotifier,
             builder:
-                (BuildContext ctx, List<Attendance> attendance, Widget? child) {
+                (BuildContext ctx, List<report> attendance, Widget? child) {
               return RefreshIndicator(
-                onRefresh: () => getdata(),
+                onRefresh: () => display(),
                 child: ListView.separated(
                     itemBuilder: (context, index) {
                       final data = attendance[index];
                       return ListTile(
                         title: Text(data.subname),
-                        subtitle: Text(data.date),
+                        subtitle: Text(""),
                         onTap: () {},
                         trailing: IconButton(
                             onPressed: () {
                               debugPrint("delete");
+                              delsubname(data.subname);
                             },
                             icon: const Icon(Icons.delete)),
                       );
@@ -88,17 +90,19 @@ class _setup1State extends State<setup1> {
   }
 }
 
+TextEditingController _datecontroller = new TextEditingController();
+
 Future<void> getsubname() async {
   final Subname = subname.text.trim();
   if (Subname.isEmpty) {
     return;
   } else {
-    addsubname(Attendance(
-        subname: Subname,
-        absent: 0,
-        date: "",
-        present: 0)); //add data to database
+    addsubname(report(subname: Subname));
   }
+}
+
+Future<void> delsubname(Subname) async {
+  deletesubname(report(subname: Subname));
 }
 
 class setup2 extends StatefulWidget {

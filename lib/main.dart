@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:attendance/Months.dart';
-import 'package:attendance/db/functions/db_functions.dart';
+import 'package:attendance/db/functions/db_report.dart';
 import 'package:attendance/home.dart';
 import 'package:attendance/profile.dart';
 import 'package:attendance/report.dart';
@@ -36,7 +36,7 @@ class Myapp extends StatelessWidget {
           return const setting();
         },
         'report': (context) {
-          return const report();
+          return const reports();
         },
         'profile': (context) {
           return const profile();
