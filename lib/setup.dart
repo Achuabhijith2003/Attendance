@@ -166,11 +166,68 @@ class monthsseleState extends State<monthssele> {
 class _setup2State extends State<setup2> {
   @override
   Widget build(BuildContext context) {
+    final name = TextEditingController();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.brown,
         title: const Text("Setup(2/2)"),
+      ),
+      body: Column(
+        children: [
+          const Center(
+            child: Text(
+              "Profile Detalis",
+              style: TextStyle(fontSize: 35, color: Colors.brown),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: TextFormField(
+              controller: name,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.brown)),
+                  hintText: 'Name'),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: TextFormField(
+              controller: name,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.brown)),
+                  hintText: 'E-mail'),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: TextFormField(
+              controller: name,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.brown)),
+                  hintText: 'Courses'),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: TextFormField(
+              controller: name,
+              decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.brown)),
+                  hintText: 'Year'),
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            style: const ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(Colors.brown)),
+            child: const Text("Submit"),
+          )
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context).pushReplacementNamed('home'),
