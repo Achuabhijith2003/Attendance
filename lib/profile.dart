@@ -90,13 +90,24 @@ class _profileState extends State<profile> {
                                     children: [
                                       Padding(
                                         padding: const EdgeInsets.only(
-                                            top: 36, left: 10),
+                                            top: 10, left: 10),
                                         child: Text(
                                           "${data.subname}",
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
-                                              fontSize: 25,
+                                              fontSize: 23,
                                               color: Colors.white),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 20, left: 10),
+                                        child: Text(
+                                          "%",
+                                          textAlign: TextAlign.right,
+                                          style: TextStyle(
+                                              fontSize: 25,
+                                              color: Colors.black),
                                         ),
                                       ),
                                     ],
