@@ -1,5 +1,42 @@
 import 'package:attendance/sidebar.dart';
 import 'package:flutter/material.dart';
+import 'package:table_calendar/src/table_calendar.dart';
+import 'package:table_calendar/table_calendar.dart';
+
+class calendar extends StatefulWidget {
+  const calendar({super.key});
+
+  @override
+  State<calendar> createState() => _calendarState();
+}
+
+class _calendarState extends State<calendar> {
+  DateTime? selectedDay;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.brown,
+          title: const Text("Calendar"),
+        ),
+        body: TableCalendar(
+          firstDay: DateTime.utc(2010, 10, 16),
+          lastDay: DateTime.utc(2030, 3, 14),
+          focusedDay: DateTime.now(),
+          selectedDayPredicate: (day) {
+            return isSameDay(selectedDay, day);
+          },
+          onDaySelected: (selectedDay, focusedDay) {
+            setState(() {
+              selectedDay = selectedDay;
+              focusedDay = focusedDay; // update `_focusedDay` here as well
+            });
+          },
+          onDisabledDayTapped: (day) => Today(),
+        ));
+  }
+}
 
 class Today extends StatefulWidget {
   const Today({super.key});
@@ -87,7 +124,7 @@ class _TodayState extends State<Today> {
 
   box() {
     //box_function
-    
+
     return ListView.separated(
         itemBuilder: (context, Stauts) {
           return Column(

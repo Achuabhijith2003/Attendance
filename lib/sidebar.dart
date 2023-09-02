@@ -23,7 +23,7 @@ class sidebar extends StatelessWidget {
           currentAccountPicture: CircleAvatar(
             child: ClipOval(
               child: Image.network(
-                "https://www.pngall.com/wp-content/uploads/5/Profile.png",
+                "https://th.bing.com/th/id/OIP.krsQwriSjmhX_uaLAHsAVgHaHa?w=200&h=200&c=7&r=0&o=5&dpr=1.1&pid=1.7",
                 width: 90,
                 height: 90,
                 fit: BoxFit.cover,
@@ -49,7 +49,7 @@ class sidebar extends StatelessWidget {
           title: const Text('Today'),
           onTap: () {
             print("Toady");
-            Navigator.of(context).pushNamed('today');
+            Navigator.of(context).pushNamed('todaty_calendar');
           },
         ),
         ListTile(

@@ -46,6 +46,9 @@ class Myapp extends StatelessWidget {
         },
         'exit': (context) {
           return exit(0);
+        },
+        'todaty_calendar': (context) {
+          return const calendar();
         }
       },
     );

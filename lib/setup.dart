@@ -43,6 +43,14 @@ class _setup1State extends State<setup1> {
                     hintText: 'Sub_name'),
               ),
             ),
+          ],
+        ),
+        Container(
+          color: Colors.blue,
+          child: Column(children: [monthssele()]),
+        ),
+        Column(
+          children: [
             ElevatedButton.icon(
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.brown)),
@@ -111,6 +119,49 @@ class setup2 extends StatefulWidget {
   @override
   State<setup2> createState() => _setup2State();
 }
+
+/// Flutter code sample for [DropdownButton].
+
+const List<String> list = <String>['One', 'Two', 'Three', 'Four'];
+
+class monthssele extends StatefulWidget {
+  const monthssele({super.key});
+
+  @override
+  State<monthssele> createState() => monthsseleState();
+}
+
+class monthsseleState extends State<monthssele> {
+  String dropdownValue = list.first;
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      value: dropdownValue,
+      icon: const Icon(Icons.arrow_downward),
+      elevation: 16,
+      style: const TextStyle(color: Colors.black),
+      underline: Container(
+        height: 2,
+        color: Colors.brown,
+      ),
+      onChanged: (String? value) {
+        // This is called when the user selects an item.
+        setState(() {
+          dropdownValue = value!;
+        });
+      },
+      items: list.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+    );
+  }
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------
 
 class _setup2State extends State<setup2> {
   @override
