@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   sqflite: ^2.2.8+4
   table_calendar: ^3.0.9
+  flutter_profile_picture: ^2.0.0
 
 dev_dependencies:
   flutter_test:

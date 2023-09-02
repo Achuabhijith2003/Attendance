@@ -1,5 +1,5 @@
-import 'package:attendance/setup.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 
 import 'db/functions/db_report.dart';
 import 'db/model/data_report.dart';
@@ -26,11 +26,14 @@ class _profileState extends State<profile> {
           Expanded(
             flex: 1,
             child: Row(children: [
-              Expanded(
+              const Expanded(
                 flex: 2,
-                child: Container(
-                  //photo_space
-                  child: CircleAvatar(maxRadius: double.infinity),
+                child: ProfilePicture(
+                  name: 'Abhijjith JR',
+                  role: 'ADMINISTRATOR',
+                  radius: 50,
+                  fontsize: 21,
+                  tooltip: true,
                 ),
               ),
               Expanded(
