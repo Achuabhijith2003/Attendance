@@ -1,11 +1,19 @@
 class Profile {
-  late String name;
-  late String email;
-  Profile({required this.name, required this.email});
-  static Profile frommap(Map<String, Object?> map) {
-    final name = map['subname'] as String;
-    final email = map['email'] as String;
+  final String name;
+  final String email;
+  final String coures;
+  final String year;
+  Profile(
+      {required this.name,
+      required this.email,
+      required this.coures,
+      required this.year});
+  static Profile frommap(Map<String, Object?> ma) {
+    final name = ma['name'] as String;
+    final email = ma['email'] as String;
+    final coures = ma['coures'] as String;
+    final year = ma['year'] as String;
 
-    return Profile(name: name, email: email);
+    return Profile(name: name, email: email, coures: coures, year: year);
   }
 }

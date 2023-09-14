@@ -57,3 +57,15 @@ ListView.separated(
 
 
                           CREATE TABLE subname (date TEXT,subname TEXT,Present INTEGER,absent INTEGER)
+
+
+                          /////////////////////////////////----Database----/////////////////////////////////////////////
+
+                          Future<void> startprofiledb() async {
+  // Open the database and create the profile table if it doesn't exist
+  profiledb = await openDatabase('Attendance.db', version: 1,
+      onCreate: (profiledb, version) async {
+    await profiledb.execute(
+        "CREATE TABLE profile (NAME TEXT,Email TEXT,coures TEXT,year TEXT)");
+  });
+}

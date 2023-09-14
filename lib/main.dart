@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:attendance/Months.dart';
+import 'package:attendance/db/functions/db_profile.dart';
 import 'package:attendance/db/functions/db_report.dart';
 import 'package:attendance/home.dart';
 import 'package:attendance/profile.dart';
@@ -13,6 +14,8 @@ import 'package:flutter/material.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await startdb();
+  await startprofiledb();
+
   runApp(const Myapp());
 }
 

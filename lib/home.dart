@@ -1,12 +1,9 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'dart:io';
-
+import 'package:attendance/db/functions/db_profile.dart';
 import 'package:attendance/db/functions/db_report.dart';
-import 'package:attendance/db/model/data_report.dart';
+
 import 'package:attendance/setup.dart';
 import 'package:attendance/sidebar.dart';
-import 'package:attendance/start.dart';
+
 import 'package:attendance/suboverall.dart';
 import 'package:flutter/material.dart';
 
@@ -21,9 +18,11 @@ class home extends StatefulWidget {
 class _homeState extends State<home> {
   @override
   Widget build(BuildContext context) {
+    // showtables();
     display();
+    profiledisplay();
     return Scaffold(
-      drawer: sidebar(),
+      drawer: const sidebar(),
       backgroundColor: const Color.fromARGB(255, 248, 247, 246),
       appBar: AppBar(
         backgroundColor: Colors.brown,

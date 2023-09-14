@@ -45,3 +45,8 @@ Future<void> deletesubname(report value) async {
 //---------------------------------------------------------------------------------------------//
 //----------------------------------Date-------------------------------
 //------ADD Date
+
+Future<void> showtables() async {
+  final re = await db.rawQuery(".tables");
+  print(re);
+}

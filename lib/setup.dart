@@ -1,4 +1,6 @@
+import 'package:attendance/db/functions/db_profile.dart';
 import 'package:attendance/db/functions/db_report.dart';
+import 'package:attendance/db/model/data_profile.dart';
 import 'package:attendance/db/model/data_report.dart';
 import 'package:flutter/material.dart';
 
@@ -98,9 +100,8 @@ class _setup1State extends State<setup1> {
   }
 }
 
-TextEditingController _datecontroller = new TextEditingController();
-
 Future<void> getsubname() async {
+  // ignore: non_constant_identifier_names
   final Subname = subname.text.trim();
   if (Subname.isEmpty) {
     return;
@@ -162,72 +163,79 @@ class monthsseleState extends State<monthssele> {
 }
 
 //---------------------------------------------------------------------------------------------------------------------------------
+final name = TextEditingController();
+final email = TextEditingController();
+final coures = TextEditingController();
+final year = TextEditingController();
 
 class _setup2State extends State<setup2> {
   @override
   Widget build(BuildContext context) {
-    final name = TextEditingController();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.brown,
         title: const Text("Setup(2/2)"),
       ),
-      body: Column(
-        children: [
-          const Center(
-            child: Text(
-              "Profile Detalis",
-              style: TextStyle(fontSize: 35, color: Colors.brown),
+      body: SizedBox(
+        child: Column(
+          children: [
+            const Center(
+              child: Text(
+                "Profile Detalis",
+                style: TextStyle(fontSize: 35, color: Colors.brown),
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: TextFormField(
-              controller: name,
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.brown)),
-                  hintText: 'Name'),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: TextFormField(
+                controller: name,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.brown)),
+                    hintText: 'Name'),
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: TextFormField(
-              controller: name,
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.brown)),
-                  hintText: 'E-mail'),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: TextFormField(
+                controller: email,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.brown)),
+                    hintText: 'E-mail'),
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: TextFormField(
-              controller: name,
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.brown)),
-                  hintText: 'Courses'),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: TextFormField(
+                controller: coures,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.brown)),
+                    hintText: 'Courses'),
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: TextFormField(
-              controller: name,
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.brown)),
-                  hintText: 'Year'),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: TextFormField(
+                controller: year,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.brown)),
+                    hintText: 'Year'),
+              ),
             ),
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            style: const ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll(Colors.brown)),
-            child: const Text("Submit"),
-          )
-        ],
+            ElevatedButton(
+              onPressed: () {
+                getprofile();
+              },
+              style: const ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(Colors.brown)),
+              child: const Text("Submit"),
+            )
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.of(context).pushReplacementNamed('home'),
@@ -238,5 +246,17 @@ class _setup2State extends State<setup2> {
         ),
       ),
     );
+  }
+
+  Future<void> getprofile() async {
+    final Name = name.text.trim();
+    final Email = email.text.trim();
+    final Coures = coures.text.trim();
+    final Year = year.text.trim();
+    if (Name.isEmpty || Email.isEmpty || Coures.isEmpty || Year.isEmpty) {
+      return;
+    } else {
+      addprofile(Profile(name: Name, email: Email, coures: Coures, year: Year));
+    }
   }
 }
