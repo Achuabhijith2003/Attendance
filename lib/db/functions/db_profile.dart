@@ -3,6 +3,8 @@ import 'package:attendance/profile.dart';
 import 'package:flutter/foundation.dart';
 import 'package:sqflite/sqflite.dart';
 
+import 'db_report.dart';
+
 ValueNotifier<List<Profile>> profilelistnotifier = ValueNotifier([]);
 late Database profiledb;
 
@@ -34,4 +36,10 @@ Future<void> addprofile(Profile value) async {
   profilelistnotifier.value.clear();
   profilelistnotifier.notifyListeners();
   profiledisplay();
+}
+
+Future<void> reset() async {
+  // Delete a single profile from the database by its id
+  await profiledb.delete('profile');
+  await db.delete('subname');
 }

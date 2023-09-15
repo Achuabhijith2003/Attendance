@@ -1,3 +1,4 @@
+import 'package:attendance/db/functions/db_profile.dart';
 import 'package:attendance/home.dart';
 import 'package:attendance/setup.dart';
 import 'package:flutter/material.dart';
@@ -86,6 +87,7 @@ class _settingState extends State<setting> {
                         color: Colors.red,
                       ),
                       onPressed: () {
+                        reset();
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const home()));
                       },
